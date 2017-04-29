@@ -1,11 +1,11 @@
 package com.muatik.model;
 
 import lombok.Data;
+import org.hibernate.validator.constraints.NotEmpty;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.Set;
 
 /**
  * Created by muatik on 4/29/17.
@@ -19,4 +19,10 @@ public class Article {
 
     @NotNull
     private String text;
+
+    // an article may have more than one author.
+    // authors should already be persisted.
+    @NotEmpty
+    @ManyToMany(cascade = CascadeType.MERGE)
+    Set<Author> authors;
 }

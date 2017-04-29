@@ -3,6 +3,7 @@ package com.muatik.model;
 import lombok.Data;
 import org.hibernate.validator.constraints.NotEmpty;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -18,6 +19,7 @@ public class Author {
     private long id;
 
     @NotEmpty
-    private String name;
+    @Column(unique = true)
+    private String email;
 
 }
