@@ -16,6 +16,10 @@ import java.util.Set;
 @Data
 @Entity
 public class Article {
+    @Id
+    @GeneratedValue
+    private long id;
+
     @NotNull
     @Column(length = 255)
     private String header;
