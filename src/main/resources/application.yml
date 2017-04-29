@@ -1,0 +1,14 @@
+spring:
+  datasource:
+    url: jdbc:hsqldb:mem:newsapp
+  jpa:
+    hibernate:
+      ddl-auto: create-drop # The data doesn't need to be persisted after the application is shut down.
+
+
+--- # Local
+
+spring:
+  profiles: local
+  jpa:
+    show-sql: true
