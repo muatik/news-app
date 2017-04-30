@@ -16,6 +16,8 @@ import java.util.Set;
 @Data
 @Entity
 public class Article {
+    public static final String DATE_PATTERN = "YYYY-MM-dd HH:mm:ss";
+
     @Id
     @GeneratedValue
     private long id;
@@ -33,7 +35,7 @@ public class Article {
      */
     @NotNull
     @Column(name = "publish_date")
-    @JsonFormat(pattern = "YYYY-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = DATE_PATTERN)
     private Date publishDate;
 
     // an article may have more than one author.
