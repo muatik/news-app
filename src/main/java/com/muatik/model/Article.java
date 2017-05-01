@@ -1,7 +1,9 @@
 package com.muatik.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
@@ -15,12 +17,14 @@ import java.util.Set;
  */
 @Data
 @Entity
+@AllArgsConstructor // to instantiate objects easily in tests
+@NoArgsConstructor
 public class Article {
     public static final String DATE_PATTERN = "YYYY-MM-dd HH:mm:ss";
 
     @Id
     @GeneratedValue
-    private long id;
+    private Long id;
 
     @NotNull
     @Column(length = 255)
